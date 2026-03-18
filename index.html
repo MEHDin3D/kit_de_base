@@ -524,12 +524,23 @@
 </div>
 
 <script>
-  function openLb(thumb) {
-    const img = thumb.querySelector('img');
-    document.getElementById('lb-img').src = img.src;
-    document.getElementById('lb-img').alt = img.alt;
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLb() {
-    document.getElementById('lightbo
+function openLb(thumb) {
+  var img = thumb.querySelector("img");
+  document.getElementById("lb-img").src = img.src;
+  document.getElementById("lb-img").alt = img.alt;
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLb() {
+  document.getElementById("lightbox").style.display = "none";
+  document.getElementById("lightbox").classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") closeLb();
+});
+</script>
+
+</body>
+</html>
